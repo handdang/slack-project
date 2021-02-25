@@ -1,0 +1,13 @@
+$font_color: rgb(67, 148, 180);
+$font_size: 16px;
+$line_height: percentage(20px / $font_size);
+body {
+    color: $font_color;
+    font: {
+        size: $font_size;
+    }
+    line-height: $line_height;
+    p{
+        font-size:40px;
+    }
+}
