@@ -1,6 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
+    entry: ["@babel/polyfill", "./src/index.js"],
     module: {
         rules: [
             {
@@ -16,16 +17,24 @@ module.exports = {
                             plugins: ['@babel/plugin-proposal-class-properties']
                         }
                     }
-                },
+            },
             {
-            test: /\.scss$/,
-            use: [
-                 MiniCssExtractPlugin.loader,
-                'css-loader',
-                'sass-loader'
-            ],
-            exclude: /node_modules/
-            }
+                test: /\.scss$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'sass-loader'
+                ],
+                exclude: /node_modules/
+            },
+             {
+                test: /\.(png|jpe?g|gif)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                    },
+                ],
+            },
         ]
     },
     plugins: [
